@@ -1,8 +1,8 @@
 #pragma once
+#include <iostream>
 #include "NodeType.h"
 #include "LinkedListIterator.h"
 #include <assert.h>
-#include <iostream>
 
 template<class Type>
 class LinkListType
@@ -20,7 +20,7 @@ public:
 		else
 			return first;
 	}
-	//Brings  the list to an empty state
+	//Returns the list to an empty state
 	//first = NULL, last = NULL, count = 0
 	void InitializeList()
 	{
@@ -37,8 +37,7 @@ public:
 		return first == NULL;
 	}
 
-	// A function to return the number of nodes in the list
-	//
+	// A function to return the of nodes in the list
 	void const Print()
 	{
 		NodeType<Type> *temp = first;
@@ -109,11 +108,11 @@ public:
 	//last points of the last node in the list, and count is increased by 1
 	void InsertFirst(const Type& other)
 	{
-		NodeType<Type> *newItem = new NodeType<Type>;
+		NodeType<Type> *newNode = new NodeType<Type>;
 
-		newItem->info = other;
-		newItem->link = first;
-		first = newItem;
+		newNode->info = other;
+		newNode->link = first;
+		first = newNode;
 
 		if (count == 0)
 			last = first;
@@ -157,9 +156,9 @@ public:
 		while (current != NULL) {
 			if (current->link->info == other)
 			{
-				NodeType<Type> *deleteNode = current->link;
-				current->link = deleteNode->link;
-				delete deleteNode;
+				NodeType<Type> *NodeToDelete = current->link;
+				current->link = NodeToDelete->link;
+				delete NodeToDelete;
 				count--;
 				return;
 			}
@@ -170,16 +169,16 @@ public:
 	//function to return an iterator at the begining of the linked list
 	LinkListIterator<Type> Begin()
 	{
-		LinkListIterator<Type> *temp;
-		temp->current = first;
+		LinkListIterator<Type> *tempNode;
+		tempNode->current = first;
 		return first;
 	}
 
 	//function to return an iterator at the end of the linked list
 	LinkListIterator<Type> End()
 	{
-		LinkListIterator<Type> *temp;
-		temp->current = last;
+		LinkListIterator<Type> *tempNode;
+		tempNode->current = last;
 		return last;
 	}
 
@@ -211,13 +210,13 @@ private:
 	// a copy of otherList is created and assigned to this list
 	void CopyList(const LinkListType<Type>& other)
 	{
-		NodeType<Type>*newNode;
+		NodeType<Type>*newTempNode;
 		NodeType<Type>*current;
 
 		current = other.first;
-		newNode = current;
-		first = newNode;
-		last = newNode;
+		newTempNode = current;
+		first = newTempNode;
+		last = newTempNode;
 		InsertFirst(current->info);
 		current = current->link;
 		while (current != NULL)
@@ -226,4 +225,4 @@ private:
 			current = current->link;
 		}
 	}
-}; #pragma once
+};
