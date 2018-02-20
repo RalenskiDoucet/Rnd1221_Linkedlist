@@ -1,2 +1,4 @@
 ﻿  main.cpp
-LINK : fatal error LNK1104: cannot open file 'C:\Users\Ralenski Doucet\source\repos\Rnd1221_Linkedlist\Debug\Rnd1221_Linkedlist.exe'
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1193,5): warning MSB8030: The linker switch "Minimum Required Version" requires "SubSystem" to be set.  Without "SubSystem", the "Minimum Required Version" would not be passed to linker and could prevent to the output binary from running on older Operating Systems.
+  Rnd1221_Linkedlist.vcxproj -> C:\Users\s178029\Documents\GitHub\Rnd1221_Linkedlist\Debug\Rnd1221_Linkedlist.exe
+  Rnd1221_Linkedlist.vcxproj -> C:\Users\s178029\Documents\GitHub\Rnd1221_Linkedlist\Debug\Rnd1221_Linkedlist.pdb (Partial PDB)
